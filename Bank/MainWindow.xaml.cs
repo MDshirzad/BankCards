@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Bank.Controller;
+using Bank.Model.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -64,16 +66,29 @@ namespace Bank
         }
 
       
-        private void SubmitButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void SubmitButton_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            
+
             if (CardNumberTxt.Text == "" || FamilyTxt.Text == "" || NameTxt.Text == "")
             {
                 MessageBox.Show("فیلد های خالی را پر کنید");
             }
             else
             {
-                MessageBox.Show("Save data");
+                string result;
+                Person person = new Person();
+                Card card = new Card();
+                PersonController personcontroller = new PersonController();
+                person.Name = NameTxt.Text.Trim().ToLower();
+                person.Family = FamilyTxt.Text.Trim().ToLower();
+                card.CardNumber = _cardNumber;
+                person.Cards.Add(card);
+
+                result = personcontroller.Create(person);
+                MessageBox.Show(result);
+                if (!result.Contains("تکراری")){
+                    _clearBoxes();
+                }
             }
 
         }
@@ -176,6 +191,16 @@ namespace Bank
          
         }
 
-        
+        private void _clearBoxes()
+        {
+            _cardNumber = "";
+            List<TextBox> textBoxes = new List<TextBox>() { NameTxt,FamilyTxt,CardNumberTxt};
+            foreach (TextBox item in textBoxes)
+            {
+                item.Clear();
+            }
+
+
+        }
     }
 }
