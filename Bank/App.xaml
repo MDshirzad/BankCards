@@ -1,0 +1,63 @@
+﻿<Application x:Class="Bank.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Bank"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+
+        <SolidColorBrush x:Key="BorderBackgroundColor" Color="#6B9080" />
+        <SolidColorBrush x:Key="ButtonBackgroundColor" Color="#A4C3B2" />
+        <Style x:Key="wrappanelStyle" TargetType="WrapPanel">
+            <Setter Property="Background" Value="Transparent" />
+
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Grid.ColumnSpan" Value="2"/>
+         
+            <Setter Property="Margin" Value="100,70,8,0"/>
+
+        </Style>
+        
+       <Style x:Key="TextblockStyle"  TargetType="TextBlock"  >
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Margin" Value="0,0,8,0"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="FontFamily" Value="Vazir"/>
+            <Setter Property="Foreground" Value="#F6FFF8"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style> 
+        
+        <Style x:Key="TextBoxStyle"  TargetType="TextBox"  >
+            
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Width" Value="235"/>
+            <Setter Property="Margin" Value="0,0,8,0"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="#EAF4F4"/>
+            <Setter Property="FontFamily" Value="Vazir"/>
+            <Setter Property="Grid.ColumnSpan" Value="2"/>
+            
+            
+        </Style>
+
+        <Style x:Key="ButtonStyle" TargetType="Button">
+
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="{StaticResource ButtonBackgroundColor}"/>
+            <Setter Property="Width" Value="235"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Foreground" Value="#EAF4F4"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="IranSansWeb"/>
+        </Style>
+        
+
+    </Application.Resources>
+</Application>
