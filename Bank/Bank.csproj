@@ -58,6 +58,9 @@
     <Compile Include="Data.xaml.cs">
       <DependentUpon>Data.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Loading.xaml.cs">
+      <DependentUpon>Loading.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UcGridData.xaml.cs">
       <DependentUpon>UcGridData.xaml</DependentUpon>
     </Compile>
@@ -65,6 +68,10 @@
       <DependentUpon>UcSimpleBorder.xaml</DependentUpon>
     </Compile>
     <Page Include="Data.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Loading.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
