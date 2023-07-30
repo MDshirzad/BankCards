@@ -78,7 +78,8 @@
             </Button>
         </WrapPanel>
         <!--#endregion-->
-        <!--#region TextBoxes-->
+        
+                <!--#region TextBoxes-->
         <WrapPanel Style="{StaticResource wrappanelStyle}"   >
             <TextBox x:Name="NameTxt"  Style="{StaticResource TextBoxStyle}"   >
             <TextBox.Resources>
@@ -141,7 +142,7 @@
             </Button>
         </WrapPanel>
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="4" Margin="0,0,45,10"  >
-            <Button x:Name="ShowDataButton" Style="{StaticResource ButtonStyle}" Template="{StaticResource NoMouseOverButtonTemplate}"  Content="نمایش"      MouseRightButtonDown="ShowDataButton_MouseRightButtonDown" >
+            <Button x:Name="ShowDataButton" Style="{StaticResource ButtonStyle}" Template="{StaticResource NoMouseOverButtonTemplate}"  Content="نمایش"     MouseRightButtonDown="ShowDataButton_MouseRightButtonDown" >
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>

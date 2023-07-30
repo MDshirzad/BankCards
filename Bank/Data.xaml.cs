@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,18 @@ namespace Bank
             this.Close();
 
         }
-        
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (this.Tag != null)
+            {
+                var data = (this.Tag as DataTable);
+                foreach (var item in data.Rows)
+                {
+                   
+                }
+            }
+
+        }
     }
 }

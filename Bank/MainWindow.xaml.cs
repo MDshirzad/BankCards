@@ -23,6 +23,7 @@ namespace Bank
     /// </summary>
     public partial class MainWindow : Window
     {
+       private PersonController _personController = new PersonController();
 
         Regex regex = new Regex("[^0-9]+");
         private string _cardNumber = "";
@@ -78,16 +79,20 @@ namespace Bank
                 string result;
                 Person person = new Person();
                 Card card = new Card();
-                PersonController personcontroller = new PersonController();
+                card.CardNumber = _cardNumber;
+                card.RegistrationDate = DateTime.Now;
+                card.Person = person;
+             
                 person.Name = NameTxt.Text.Trim().ToLower();
                 person.Family = FamilyTxt.Text.Trim().ToLower();
-                card.CardNumber = _cardNumber;
                 person.Cards.Add(card);
-
-                result = personcontroller.Create(person);
+             
+                result = _personController.Create(person);
+               
                 MessageBox.Show(result);
-                if (!result.Contains("تکراری")){
-                    _clearBoxes();
+                if (!result.Contains("موجود است"))
+                {
+                    clearBoxes();
                 }
             }
 
@@ -182,6 +187,7 @@ namespace Bank
         private void ShowDataButton_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             Data dataWindow= new Data();
+          
             dataWindow.ShowDialog();
         }
 
@@ -191,7 +197,7 @@ namespace Bank
          
         }
 
-        private void _clearBoxes()
+        private void clearBoxes()
         {
             _cardNumber = "";
             List<TextBox> textBoxes = new List<TextBox>() { NameTxt,FamilyTxt,CardNumberTxt};
@@ -200,6 +206,11 @@ namespace Bank
                 item.Clear();
             }
 
+
+        }
+
+        private void ShowDataButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
 
         }
     }
