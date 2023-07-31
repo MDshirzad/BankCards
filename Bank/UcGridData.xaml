@@ -36,14 +36,7 @@
             </TextBox>
             <!--ItemsSource="{Binding Collection}"-->
             <DataGrid  BorderBrush = "{x:Null}"  HeadersVisibility="Column" ItemsSource="{Binding Collection}"   Style="{StaticResource gridStyle}"   Name="DataGrid" RowStyle="{StaticResource HighlightRow}"   >
-                <!--<DataGrid.RowStyle >
-                    <Style TargetType="{x:Type DataGridRow}">
-                        <Setter Property="FontSize" Value="18"/>
-                        <Setter Property="FontFamily" Value="Vazir"/>
-                        <Setter Property="FontWeight" Value="Medium"/>
-                  
-                    </Style>
-                </DataGrid.RowStyle>-->
+ 
                 <DataGrid.ColumnHeaderStyle >
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="FontWeight" Value="Bold"/>

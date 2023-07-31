@@ -32,6 +32,7 @@ namespace Bank
      
         PersonController personController = new PersonController();
         #endregion
+
         public GridData()
         {
             Collection = new ObservableCollection<PersonView>();
@@ -46,9 +47,11 @@ namespace Bank
             BindGrid(PeopleData);
 
 
-
         }
-
+        /// <summary>
+        /// Bind grid with input arguement
+        /// </summary>
+        /// <param name="PeopleData"> type List<Person> </Person></param>
         private void BindGrid(List<Person> PeopleData) {
 
 
@@ -69,6 +72,11 @@ namespace Bank
             DataGrid.ItemsSource = Collection;
         }
 
+        /// <summary>
+        /// delete selected person
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void delBtnContextMenu_Click(object sender, RoutedEventArgs e)
         {
            

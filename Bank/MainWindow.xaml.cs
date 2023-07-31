@@ -28,7 +28,7 @@ namespace Bank
         Regex regex = new Regex("[^0-9]+");
         private string _cardNumber = "";
 
-        #region MoveWindow
+        #region Move Window
         private bool clicked = false;
         private Point lmAbs = new Point();
         void PnMouseDown(object sender, System.Windows.Input.MouseEventArgs e)
@@ -66,7 +66,11 @@ namespace Bank
             InitializeComponent();
         }
 
-      
+      /// <summary>
+      /// Register and controll data
+      /// </summary>
+      /// <param name="sender"></param>
+      /// <param name="e"></param>
         private void SubmitButton_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
 
@@ -190,7 +194,11 @@ namespace Bank
           
             dataWindow.ShowDialog();
         }
-
+       
+        /// <summary>
+        /// Shutting down application <summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CloseButton_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
@@ -209,9 +217,6 @@ namespace Bank
 
         }
 
-        private void ShowDataButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
+         
     }
 }

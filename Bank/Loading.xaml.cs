@@ -52,7 +52,8 @@ namespace Bank
             }
             else if (t == 30)
             {
-                //pbl.read();
+                Controller.PersonController personController = new Controller.PersonController();
+                personController.Readall();
 
             }
             else if (t == 32)
