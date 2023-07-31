@@ -62,6 +62,7 @@ namespace Bank
                 prs.RegDate = person.Cards[0].RegistrationDate;
                 prs.Family = person.Family;
                 prs.Name = person.Name;
+                prs.HaveMultipleCards = person.HaveMultipleCards;
                 Collection.Add(prs);
                 prs = new PersonView();
             }

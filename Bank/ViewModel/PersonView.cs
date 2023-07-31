@@ -13,7 +13,8 @@ namespace Bank.ViewModel
 
         public string Name { get; set; }
         public string Family { get; set; }
-        public string CardsNumber { get; set; }  
+        public string CardsNumber { get; set; } 
+        public bool HaveMultipleCards { get; set; }
         public DateTime RegDate { get; set; }
 
     }

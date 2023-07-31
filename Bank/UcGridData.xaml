@@ -35,19 +35,19 @@
                 </TextBox.Resources>
             </TextBox>
             <!--ItemsSource="{Binding Collection}"-->
-            <DataGrid   ItemsSource="{Binding Collection}"   Style="{StaticResource gridStyle}"   Name="DataGrid"    >
-                <DataGrid.RowStyle >
+            <DataGrid  BorderBrush = "{x:Null}"  HeadersVisibility="Column" ItemsSource="{Binding Collection}"   Style="{StaticResource gridStyle}"   Name="DataGrid" RowStyle="{StaticResource HighlightRow}"   >
+                <!--<DataGrid.RowStyle >
                     <Style TargetType="{x:Type DataGridRow}">
                         <Setter Property="FontSize" Value="18"/>
                         <Setter Property="FontFamily" Value="Vazir"/>
                         <Setter Property="FontWeight" Value="Medium"/>
                   
                     </Style>
-                </DataGrid.RowStyle>
-                <DataGrid.ColumnHeaderStyle>
+                </DataGrid.RowStyle>-->
+                <DataGrid.ColumnHeaderStyle >
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="FontWeight" Value="Bold"/>
-                         
+                        <Setter Property="Background" Value="#6E858A"/>
                     </Style>
                 </DataGrid.ColumnHeaderStyle>
                 <DataGrid.Columns>
@@ -57,8 +57,8 @@
                 <DataGridTextColumn Header="نام خانوادگی" Binding="{Binding Family}"/>
                 <DataGridTextColumn Header="شماره کارت" Binding="{Binding CardsNumber}"/>
                 <DataGridTextColumn Header="تاریخ ثبت" Binding="{Binding RegDate}"/>
-                
-                    
+                  
+
 
                 </DataGrid.Columns>
                 

@@ -29,7 +29,10 @@ namespace Bank.Model.Da
         }
         public List<Person> Read(string strSearch)
         {
+             
+
             return db.People.Include("Cards").Where(s=>s.Family.Contains(strSearch)|| s.Name.Contains(strSearch)).ToList();
+           
 
         }
         public string Create(Person person) {
@@ -51,14 +54,17 @@ namespace Bank.Model.Da
                 {
                      // Person Exists and Card not exists
                     
-                        string queryperson = "INSERT INTO dbo.Cards (CardNumber,RegistrationDate,Person_Id) VALUES (@CardNumber,@RegistrationDate,@person_Id)";
+                        string queryCard= "INSERT INTO dbo.Cards (CardNumber,RegistrationDate,Person_Id) VALUES (@CardNumber,@RegistrationDate,@person_Id)";
                         
                         var card = person.Cards[0];
-                        _command = new SqlCommand(queryperson,_con);
+                        _command = new SqlCommand(queryCard, _con);
                         _command.Parameters.Add("@CardNumber", card.CardNumber);
                         _command.Parameters.Add("@RegistrationDate", card.RegistrationDate);
                         _command.Parameters.Add("@person_Id", personExists.Id);
+               
                         _command.ExecuteNonQuery();
+                        db.People.Find(personExists.Id).HaveMultipleCards = true;
+                        db.SaveChanges();
                         return $"کارت جدید ثبت شد";
 
                     
