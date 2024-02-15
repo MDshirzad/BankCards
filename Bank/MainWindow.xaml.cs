@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Bank.Controller;
+using Bank.Model.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,11 +23,12 @@ namespace Bank
     /// </summary>
     public partial class MainWindow : Window
     {
+       private PersonController _personController = new PersonController();
 
         Regex regex = new Regex("[^0-9]+");
         private string _cardNumber = "";
 
-        #region MoveWindow
+        #region Move Window
         private bool clicked = false;
         private Point lmAbs = new Point();
         void PnMouseDown(object sender, System.Windows.Input.MouseEventArgs e)
@@ -63,17 +66,38 @@ namespace Bank
             InitializeComponent();
         }
 
-      
-        private void SubmitButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+      /// <summary>
+      /// Register and controll data
+      /// </summary>
+      /// <param name="sender"></param>
+      /// <param name="e"></param>
+        private void SubmitButton_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            
+
             if (CardNumberTxt.Text == "" || FamilyTxt.Text == "" || NameTxt.Text == "")
             {
                 MessageBox.Show("فیلد های خالی را پر کنید");
             }
             else
             {
-                MessageBox.Show("Save data");
+                string result;
+                Person person = new Person();
+                Card card = new Card();
+                card.CardNumber = _cardNumber;
+                card.RegistrationDate = DateTime.Now;
+                card.Person = person;
+             
+                person.Name = NameTxt.Text.Trim().ToLower();
+                person.Family = FamilyTxt.Text.Trim().ToLower();
+                person.Cards.Add(card);
+             
+                result = _personController.Create(person);
+               
+                MessageBox.Show(result);
+                if (!result.Contains("موجود است"))
+                {
+                    clearBoxes();
+                }
             }
 
         }
@@ -167,15 +191,32 @@ namespace Bank
         private void ShowDataButton_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             Data dataWindow= new Data();
+          
             dataWindow.ShowDialog();
         }
-
+       
+        /// <summary>
+        /// Shutting down application <summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CloseButton_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
          
         }
 
-        
+        private void clearBoxes()
+        {
+            _cardNumber = "";
+            List<TextBox> textBoxes = new List<TextBox>() { NameTxt,FamilyTxt,CardNumberTxt};
+            foreach (TextBox item in textBoxes)
+            {
+                item.Clear();
+            }
+
+
+        }
+
+         
     }
 }

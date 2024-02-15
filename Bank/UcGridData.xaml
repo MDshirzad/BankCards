@@ -5,23 +5,72 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Bank"
              mc:Ignorable="d" 
+             x:Name="UcGridDatatable"
+             Loaded="UcGridDatatable_Loaded"
            
              
-             d:DesignHeight="500" d:DesignWidth="1260">
-    <Border CornerRadius="15" Margin="10" BorderThickness="0" Background="#CCE3DE">
+             d:DesignHeight="750" d:DesignWidth="1260">
+
+    <Border CornerRadius="15" Margin="15" BorderThickness="0" Background="#CCE3DE">
         <Border.BitmapEffect>
-            <DropShadowBitmapEffect/>
+           
+
+                <DropShadowBitmapEffect/>
+               
+
         </Border.BitmapEffect>
-    <Grid>
-            <Border x:Name="BDRounded" BorderThickness="0" CornerRadius="20"  />
-            <!--<local:UcSimpleBorder Opacity="0.88"/>-->
-            <DataGrid   BorderThickness="0">
-            <DataGrid.OpacityMask>
-                <VisualBrush Visual="{Binding ElementName=BDRounded}" />
 
-            </DataGrid.OpacityMask>
 
-        </DataGrid>
-    </Grid>
+            
+        <Grid DataContext="{Binding ElementName=UcGridDatatable, Path=.}">
+            
+            <local:UcSimpleBorder Opacity="0.88"/>
+            <Border   BorderThickness="0" CornerRadius="20"  />
+            <TextBlock  Style="{StaticResource TextblockStyle}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,80,320,0" Text="جستجو"/>
+            <TextBox x:Name="searchTxt" Style="{StaticResource TextBoxStyle}"  TextChanged="searchTxt_TextChanged" Width="400"    Margin="0,80,0,0" >
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <!--ItemsSource="{Binding Collection}"-->
+            <DataGrid  BorderBrush = "{x:Null}"  HeadersVisibility="Column" ItemsSource="{Binding Collection}"   Style="{StaticResource gridStyle}"   Name="DataGrid" RowStyle="{StaticResource HighlightRow}"   >
+ 
+                <DataGrid.ColumnHeaderStyle >
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="Background" Value="#6E858A"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+                <DataGrid.Columns>
+                     
+                <DataGridTextColumn Header="شمارنده" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="نام" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="نام خانوادگی" Binding="{Binding Family}"/>
+                <DataGridTextColumn Header="شماره کارت" Binding="{Binding CardsNumber}"/>
+                <DataGridTextColumn Header="تاریخ ثبت" Binding="{Binding RegDate}"/>
+                  
+
+
+                </DataGrid.Columns>
+                
+
+            <DataGrid.ContextMenu>
+                <ContextMenu Name="contextmenu" BorderBrush="Black" BorderThickness="1" FontFamily="Vazir" FontSize="16" >
+
+                        <MenuItem Name="delBtnContextMenu" Header="حذف" Background="#FF6B9080"   
+                              Click="delBtnContextMenu_Click">
+                            <MenuItem.Icon>
+
+                                <Image Source="icons/remove.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+
+                    </ContextMenu>
+                
+            </DataGrid.ContextMenu>
+            </DataGrid>
+        </Grid>
         </Border>
 </UserControl>
