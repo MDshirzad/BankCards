@@ -45,7 +45,7 @@
       
         <!--#region close button-->
         <WrapPanel   HorizontalAlignment="Right" VerticalAlignment="Top"   Grid.Column="2" Width="50" Height="60" Margin="0,10,10,0"  >
-            <Button Cursor="Hand"  Name="CloseButton" BorderBrush="Transparent" Background="Transparent"   Template="{StaticResource NoMouseOverButtonTemplate}"  MouseRightButtonDown="CloseButton_MouseRightButtonDown" >
+            <Button Cursor="Hand"  Name="CloseButton" BorderBrush="Transparent" Background="Transparent"   Template="{StaticResource NoMouseOverButtonTemplate}"  PreviewMouseLeftButtonDown="CloseButton_MouseRightButtonDown" >
                 <Image  Source="icons/close.png"/>
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
