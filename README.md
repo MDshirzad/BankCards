@@ -1,3 +1,5 @@
-![alt text]([http://url/to/img.png](https://github.com/MDshirzad/BankCards/blob/master/1.png)https://github.com/MDshirzad/BankCards/blob/master/1.png)
-
-![alt text]([http://url/to/img.png](https://github.com/MDshirzad/BankCards/blob/master/1.png)https://github.com/MDshirzad/BankCards/blob/master/2.png)
+ 
+<p align="center">
+  <img src="https://github.com/MDshirzad/BankCards/blob/master/1.png)https://github.com/MDshirzad/BankCards/blob/master/1.png" width="350" title="hover text">
+  <img src="https://github.com/MDshirzad/BankCards/blob/master/1.png)https://github.com/MDshirzad/BankCards/blob/master/2.png" width="350" alt="accessibility text">
+</p>
